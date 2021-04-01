@@ -1,4 +1,18 @@
 :root {
   --transition-1: all .2s ease-out;
+  
   --border-radius-1: 12px;
+
+  --mobile-min: 280px;
+  --mobile-max: 767px;
+  --tablet-min: 768px;
+  --tablet-max: 980px;
+  --desktop-min: 981px;
+  --desktop-small-max: 1080px;
+  --desktop-medium-min: 1081px;
+  --desktop-medium-max: 1260px;
+  --desktop-large-min: 1261px;
+  --desktop-large-max: 1580px;
+  --desktop-hd-min: 1581px;
+  --desktop-hd-max: 1920px;
 }

@@ -1,6 +1,3 @@
-@import './variables.css';
-@import './animations.css';
-
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -20,13 +17,6 @@ main {
   display: grid;
   width: 360px;
   margin: 0;
-  border-radius: 12px;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.2);
-}
-
-#calculator c-input {
-  grid-row: 1/2;
-  grid-column: 1/3;
 }
 
 #calculator-digits,
@@ -37,14 +27,6 @@ main {
   margin: 0;
   border: none;
   height: 320px;
-}
-
-#calculator-operations {
-  width: 80px;
-}
-
-#calculator-digits {
-  width: 280px;
 }
 
 :is(#calculator-digits, #calculator-operations) c-button {
@@ -64,6 +46,11 @@ main {
   opacity: .6;
 }
 
+#calculator c-input {
+  grid-row: 1/2;
+  grid-column: 1/3;
+}
+
 #calculator-digits c-button:nth-child(3n+1) {
   grid-column: 1/2;
 }
@@ -78,9 +65,50 @@ main {
 
 #calculator-digits c-button:last-child {
   grid-column: 1/4;
-  border-radius: 0 0 0 var(--border-radius-1);
 }
 
-#calculator-operations c-button:last-child {
-  border-radius: 0 0 var(--border-radius-1) 0;
+@media screen and (min-width: 767px) {
+
+  #calculator {
+    border-radius: var(--border-radius-1);
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  #calculator c-input {
+    max-height: 80px;
+  }
+
+  #calculator-digits c-button:last-child {
+    grid-column: 1/4;
+    border-radius: 0 0 0 var(--border-radius-1);
+  }
+  
+  #calculator-operations c-button:last-child {
+    border-radius: 0 0 var(--border-radius-1) 0;
+  }
+
+  #calculator-operations {
+    width: 80px;
+  }
+  
+  #calculator-digits {
+    width: 280px;
+  }
+}
+
+@media (min-width: 280px) and (max-width: 767px) {
+
+  #calculator {
+    height: 100vh;
+    width: 100vw;
+    grid-template-rows: calc(100vh - 280px) auto;
+  }
+
+  #calculator-operations {
+    width: 25vw;
+  }
+  
+  #calculator-digits {
+    width: 75vw;
+  }
 }
