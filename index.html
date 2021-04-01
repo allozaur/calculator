@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
     <link href="styles/index.css" rel="stylesheet">
     <script src="app.js"></script>
+    <script src="components/c-button/c-button.js"></script>
+    <script src="components/c-input/c-input.js"></script>
   </head>
   <body>
     <header>
@@ -16,29 +18,25 @@
     </header>
     <main>
       <form id="calculator">
-        <input
-          type="number"
-          inputmode="numeric"
-          id="calculator-input"
-        >
-        <fieldset id="calculator-operations">
-          <button class="calculator-digit">1</button>
-          <button class="calculator-digit">2</button>
-          <button class="calculator-digit">3</button>
-          <button class="calculator-digit">4</button>
-          <button class="calculator-digit">5</button>
-          <button class="calculator-digit">6</button>
-          <button class="calculator-digit">7</button>
-          <button class="calculator-digit">8</button>
-          <button class="calculator-digit">9</button>
-          <button class="calculator-digit">0</button>
+        <c-input></c-input>
+        <fieldset id="calculator-digits">
+          <c-button>1</c-button>
+          <c-button>2</c-button>
+          <c-button>3</c-button>
+          <c-button>4</c-button>
+          <c-button>5</c-button>
+          <c-button>6</c-button>
+          <c-button>7</c-button>
+          <c-button>8</c-button>
+          <c-button>9</c-button>
+          <c-button>0</c-button>
         </fieldset>
         <fieldset id="calculator-operations">
-          <button id="add-button">+</button>
-          <button id="subtract-button">-</button>
-          <button id="multiply-button">*</button>
-          <button id="divide-button">/</button>
-          <button id="equal-button">=</button>
+          <c-button id="equal-button">=</c-button>
+          <c-button id="add-button">+</c-button>
+          <c-button id="subtract-button">-</c-button>
+          <c-button id="multiply-button">*</c-button>
+          <c-button id="divide-button">/</c-button>
         </fieldset>
       </form>
     </main>
