@@ -5,6 +5,7 @@ cInputTemplate.innerHTML = `
     type="number"
     inputmode="numeric"
     id="calculator-input"
+    autofocus
   >
 `;
 

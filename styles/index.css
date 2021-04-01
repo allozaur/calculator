@@ -13,12 +13,15 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 #calculator {
   display: grid;
   width: 360px;
   margin: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.2);
 }
 
 #calculator c-input {
@@ -75,4 +78,9 @@ main {
 
 #calculator-digits c-button:last-child {
   grid-column: 1/4;
+  border-radius: 0 0 0 var(--border-radius-1);
+}
+
+#calculator-operations c-button:last-child {
+  border-radius: 0 0 var(--border-radius-1) 0;
 }
