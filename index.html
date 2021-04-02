@@ -9,9 +9,14 @@
     <link href="styles/variables.css" rel="stylesheet">
     <link href="styles/animations.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
     <link rel="preload" href="styles/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles/index.css"></noscript>
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap">
+      <link rel="stylesheet" href="styles/index.css">
+    </noscript>
     <script src="scripts/detect-mobile.js" async></script>
     <script src="components/c-button/c-button.js" async></script>
     <script src="components/c-input/c-input.js" async></script>
