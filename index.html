@@ -11,9 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
     <link href="styles/index.css" rel="stylesheet">
-    <script src="app.js"></script>
+    <script src="scripts/detect-mobile.js" async></script>
     <script src="components/c-button/c-button.js"></script>
     <script src="components/c-input/c-input.js"></script>
+    <script src="scripts/dom-elements.js" defer></script>
+    <script src="app.js" defer></script>
   </head>
   <body>
     <!-- <header>
@@ -21,18 +23,87 @@
     </header> -->
     <main>
       <form id="calculator">
-        <c-input></c-input>
+        <!-- <c-input></c-input> -->
+        <div class="calculator-input__wrapper">
+          <input
+            type="number"
+            inputmode="numeric"
+            id="calculator-input"
+            class="calculator-input"
+            autofocus
+          >
+        </div>
         <fieldset id="calculator-digits">
-          <c-button>1</c-button>
-          <c-button>2</c-button>
-          <c-button>3</c-button>
-          <c-button>4</c-button>
-          <c-button>5</c-button>
-          <c-button>6</c-button>
-          <c-button>7</c-button>
-          <c-button>8</c-button>
-          <c-button>9</c-button>
-          <c-button>0</c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-1"
+            onclick="inputDigitValue('1')"
+          >
+            1
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-2"
+            onclick="inputDigitValue('2')"
+          >
+            2
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-3"
+            onclick="inputDigitValue('3')"
+          >
+            3
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-4"
+            onclick="inputDigitValue('4')"
+          >
+            4
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-5"
+            onclick="inputDigitValue('5')"
+          >
+            5
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-6"
+            onclick="inputDigitValue('6')"
+          >
+            6
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-7"
+            onclick="inputDigitValue('7')"
+          >
+            7
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-8"
+            onclick="inputDigitValue('8')"
+          >
+            8
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-9"
+            onclick="inputDigitValue('9')"
+          >
+            9
+        </c-button>
+          <c-button
+            class="calculator-digit"
+            id="digit-0"
+            onclick="inputDigitValue('0')"
+          >
+            0
+        </c-button>
         </fieldset>
         <fieldset id="calculator-operations">
           <c-button id="equal-button">=</c-button>

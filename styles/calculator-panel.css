@@ -1,0 +1,84 @@
+#calculator-digits,
+#calculator-operations {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  border: none;
+  height: 360px;
+}
+
+#calculator-digits c-button {
+  width: 33.33%;
+  height: 25%;
+}
+
+#calculator-digits c-button:last-child {
+  width: 100%;
+}
+
+#calculator-operations {
+  flex-direction: column;
+}
+
+#calculator-operations c-button {
+  height: 20%;
+}
+
+:is(#calculator-digits, #calculator-operations) c-button {
+  transition: var(--transition-1);
+  animation: fade-in 1s;
+}
+
+#calculator-digits c-button {
+  background-color: #222;
+}
+
+#calculator-operations c-button {
+  background-color: orange;
+}
+
+@media screen and (min-width: 981px) {
+  :is(#calculator-digits, #calculator-operations) c-button:hover {
+    opacity: .6;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  :is(#calculator-digits, #calculator-operations) c-button:is(:active, :link) {
+    opacity: .6;
+  }
+  :is(#calculator-digits, #calculator-operations) c-button {
+    -webkit-tap-highlight-color: rgba(34, 34, 34, 0.6) !important;
+  }
+}
+
+@media (min-width: 280px) and (max-width: 767px) {
+
+  #calculator-operations {
+    width: 25vw;
+  }
+  
+  #calculator-digits {
+    width: 75vw;
+  }
+}
+
+@media screen and (min-width: 767px) {
+
+  #calculator-digits c-button:last-child {
+    border-radius: 0 0 0 var(--border-radius-1);
+  }
+  
+  #calculator-operations c-button:last-child {
+    border-radius: 0 0 var(--border-radius-1) 0;
+  }
+
+  #calculator-operations {
+    width: 80px;
+  }
+  
+  #calculator-digits {
+    width: 280px;
+  }
+}
