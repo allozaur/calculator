@@ -9,18 +9,14 @@
     <link href="styles/variables.css" rel="stylesheet">
     <link href="styles/animations.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
     <link rel="preload" href="styles/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap">
       <link rel="stylesheet" href="styles/index.css">
     </noscript>
-    <script src="scripts/detect-mobile.js" async></script>
     <script src="components/c-button/c-button.js" async></script>
     <script src="components/c-input/c-input.js" async></script>
-    <script src="scripts/dom-elements.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -34,76 +30,77 @@
             id="calculator-input"
             class="calculator-input"
             autofocus
+            readonly
           >
         </div>
         <fieldset id="calculator-digits">
           <c-button
             class="calculator-digit"
             id="digit-1"
-            onclick="addDigitValue('1')"
+            onclick="commitDigit('1')"
           >
             1
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-2"
-            onclick="addDigitValue('2')"
+            onclick="commitDigit('2')"
           >
             2
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-3"
-            onclick="addDigitValue('3')"
+            onclick="commitDigit('3')"
           >
             3
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-4"
-            onclick="addDigitValue('4')"
+            onclick="commitDigit('4')"
           >
             4
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-5"
-            onclick="addDigitValue('5')"
+            onclick="commitDigit('5')"
           >
             5
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-6"
-            onclick="addDigitValue('6')"
+            onclick="commitDigit('6')"
           >
             6
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-7"
-            onclick="addDigitValue('7')"
+            onclick="commitDigit('7')"
           >
             7
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-8"
-            onclick="addDigitValue('8')"
+            onclick="commitDigit('8')"
           >
             8
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-9"
-            onclick="addDigitValue('9')"
+            onclick="commitDigit('9')"
           >
             9
           </c-button>
           <c-button
             class="calculator-digit"
             id="digit-0"
-            onclick="addDigitValue('0')"
+            onclick="commitDigit('0')"
           >
             0
           </c-button>
@@ -116,7 +113,7 @@
           </c-button>
         </fieldset>
         <fieldset id="calculator-operations">
-          <c-button id="equal-button" onclick="calculationResult()">=</c-button>
+          <c-button id="equal-button" onclick="equals()">=</c-button>
           <c-button id="add-button" onclick="calculate('+')">+</c-button>
           <c-button id="subtract-button" onclick="calculate('-')">-</c-button>
           <c-button id="multiply-button" onclick="calculate('*')">*</c-button>
@@ -127,6 +124,7 @@
           id="calculator-output"
           for="calculator-input"
       ></output>
+      <code id="current-operator"></code>
     </main>
   </body>
 </html>

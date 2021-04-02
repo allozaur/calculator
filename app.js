@@ -1,11 +1,17 @@
-let result = 0;
-let previousResult = result;
-let currentOperator;
+const initialResult = 0
+let result = initialResult
+let previousResult = result
+let currentOperator
+let newValue = true
 
-function addDigitValue (value) {
-  calculatorInput.value = calculatorInput.value + value
-  console.log(value);
-}
+const calculatorInput = document.getElementById('calculator-input')
+const calculatorOutput = document.getElementById('calculator-output')
+
+const equalBtn = document.getElementById('equal-button')
+const addBtn = document.getElementById('add-button')
+const subtractBtn = document.getElementById('subtract-button')
+const multiplyBtn = document.getElementById('multiply-button')
+const divideBtn = document.getElementById('divide-button')
 
 function clearCalculatorInput () {
   calculatorInput.value = ''
@@ -20,6 +26,24 @@ function clearCalculator () {
   clearCalculatorOutput()
   result = 0
   previousResult = 0
+  // currentOperator = ''
+  document.getElementById('current-operator').innerHTML = ''
+}
+
+function spawnDigit (value) {
+  if (newValue === true) {
+    clearCalculatorInput()
+  }
+  calculatorInput.value = calculatorInput.value + value
+  console.log(value)
+}
+
+function commitDigit (value) {
+  if (previousResult !== 0) {
+    previousResult = parseInt(value)
+  }
+  spawnDigit(value)
+  newValue = false
 }
 
 function calculationResult () {
@@ -39,21 +63,31 @@ function calculate (operator) {
 
   if (operator === '*') {
     if (previousResult === 0) {
-      previousResult = 1;
+      previousResult = 1
     }
     result = previousResult * parseInt(calculatorInput.value)
   }
 
   if (operator === '/') {
     if (previousResult === 0) {
-      previousResult = 1;
+      previousResult = 1
     }
     result = previousResult / parseInt(calculatorInput.value)
   }
   
-  calculatorOutput.value = `${previousResult} ${operator} ${parseInt(calculatorInput.value)} = ${result}`
+  calculatorOutput.value = `[previousResult: ${previousResult}] ${operator} [calculatorInput.value: ${parseInt(calculatorInput.value)}] = [result: ${result}]`
   calculatorInput.value = result
   previousResult = result
-
-  clearCalculatorInput()
+  currentOperator = operator
+  document.getElementById('current-operator').innerHTML = 'Current operator: ' + currentOperator
+  
+  newValue = true
 }
+
+function equals () {
+  calculate(currentOperator)
+}
+
+// if (newValue === true) {
+//   return calculatorInput.value = ''
+// }

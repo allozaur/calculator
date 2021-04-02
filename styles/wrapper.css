@@ -19,7 +19,7 @@ main {
 
 #calculator-output {
   margin-top: 80px;
-  font-size: 48px;
+  /* font-size: 48px; */
 }
 
 @media (min-width: 280px) and (max-width: 767px) {
