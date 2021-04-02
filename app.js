@@ -1,5 +1,6 @@
 let result = 0;
 let previousResult = result;
+let currentOperator;
 
 function addDigitValue (value) {
   calculatorInput.value = calculatorInput.value + value
@@ -26,7 +27,9 @@ function calculationResult () {
 }
 
 function calculate (operator) {
-  if (isNaN(calculatorInput.value)) return alert('Provide valid value!')
+  if (isNaN(calculatorInput.value) || calculatorInput.value.length < 1) return alert('Provide valid value!')
+
+  // clearCalculatorInput()
 
   if (operator === '+') {
     result = result + parseInt(calculatorInput.value)
@@ -51,9 +54,8 @@ function calculate (operator) {
   }
   
   calculatorOutput.value = `${previousResult} ${operator} ${parseInt(calculatorInput.value)} = ${result}`
+  calculatorInput.value = result
   previousResult = result
 
   clearCalculatorInput()
 }
-
-// calculatorOutput.value = `${calculation.first} ${calculation.operator} ${calculation.second}`
