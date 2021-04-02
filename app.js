@@ -23,13 +23,11 @@ function clearCalculator () {
 }
 
 function calculationResult () {
-  alert('Lelelelel')
+  // https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_output
 }
 
 function calculate (operator) {
   if (isNaN(calculatorInput.value) || calculatorInput.value.length < 1) return alert('Provide valid value!')
-
-  // clearCalculatorInput()
 
   if (operator === '+') {
     result = result + parseInt(calculatorInput.value)
