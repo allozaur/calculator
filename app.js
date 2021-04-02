@@ -2,10 +2,13 @@ function testAlert () {
   alert('Test')
 }
 
-function inputDigitValue (value) {
-  calculatorInput.value = value
+function addDigitValue (value) {
+  calculatorInput.value = calculatorInput.value + value
   console.log(value);
 }
 
-// console.log(calculatorDigit);
-calculatorInput.addEventListener('click', testAlert);
+function clearInputValue () {
+  calculatorInput.value = null
+}
+
+// calculatorInput.addEventListener('click', testAlert);
