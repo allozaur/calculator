@@ -1,7 +1,7 @@
 :root {
   --transition-1: all .2s ease-out;
   
-  --border-radius-1: 12px;
+  --border-radius-1: 16px;
 
   --mobile-min: 280px;
   --mobile-max: 767px;

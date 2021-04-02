@@ -6,7 +6,7 @@ div {
 }
 
 input {
-  padding: 0 12px;
+  padding: 0 16px;
   margin: 0;
   -webkit-appearance: none;
   -moz-appearance: textfield;
@@ -34,7 +34,11 @@ input {
    -moz-appearance: textfield;
  }
 
-@media screen and (min-width: var(--tablet-down-breakpoint)) {
+@media screen and (min-width: 768px) {
+
+  div {
+    align-items: center;
+  }
 
   input {
     border-radius: var(--border-radius-1) var(--border-radius-1) 0 0;
