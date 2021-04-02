@@ -6,6 +6,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
 }
 
@@ -14,6 +15,11 @@ main {
   flex-wrap: wrap;
   width: 360px;
   margin: 0;
+}
+
+#calculator-output {
+  margin-top: 80px;
+  font-size: 48px;
 }
 
 @media (min-width: 280px) and (max-width: 767px) {

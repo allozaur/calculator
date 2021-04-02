@@ -4,7 +4,7 @@
       Super Duper Calculator
     </title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link href="styles/reset.css" rel="stylesheet">
     <link href="styles/variables.css" rel="stylesheet">
     <link href="styles/animations.css" rel="stylesheet">
@@ -12,22 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
     <link href="styles/index.css" rel="stylesheet">
     <script src="scripts/detect-mobile.js" async></script>
-    <script src="components/c-button/c-button.js"></script>
-    <script src="components/c-input/c-input.js"></script>
+    <script src="components/c-button/c-button.js" async></script>
+    <script src="components/c-input/c-input.js" async></script>
     <script src="scripts/dom-elements.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <!-- <header>
-      <h1>Super duper calculator</h1>
-    </header> -->
     <main>
       <form id="calculator">
-        <!-- <c-input></c-input> -->
         <div class="calculator-input__wrapper">
           <input
             type="number"
             inputmode="numeric"
+            name="calculator-input"
             id="calculator-input"
             class="calculator-input"
             autofocus
@@ -107,19 +104,23 @@
           <c-button
             class="calculator-digit"
             id="digit-0"
-            onclick="clearInputValue()"
+            onclick="clearCalculator()"
           >
             C
           </c-button>
         </fieldset>
         <fieldset id="calculator-operations">
-          <c-button id="equal-button">=</c-button>
-          <c-button id="add-button">+</c-button>
-          <c-button id="subtract-button">-</c-button>
-          <c-button id="multiply-button">*</c-button>
-          <c-button id="divide-button">/</c-button>
+          <c-button id="equal-button" onclick="calculationResult()">=</c-button>
+          <c-button id="add-button" onclick="calculate('+')">+</c-button>
+          <c-button id="subtract-button" onclick="calculate('-')">-</c-button>
+          <c-button id="multiply-button" onclick="calculate('*')">*</c-button>
+          <c-button id="divide-button" onclick="calculate('/')">/</c-button>
         </fieldset>
       </form>
+      <output
+          id="calculator-output"
+          for="calculator-input"
+      ></output>
     </main>
   </body>
 </html>

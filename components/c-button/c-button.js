@@ -2,7 +2,6 @@ const cButtonTemplate = document.createElement('template');
 cButtonTemplate.innerHTML = `
   <link rel="stylesheet" href="components/c-button/c-button.css">
   <button
-    type="button"
     class="calculator-digit"
   >
     <slot />
@@ -14,6 +13,7 @@ class cButton extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(cButtonTemplate.content.cloneNode(true));
+    this.shadowRoot.querySelector('button').type = this.getAttribute('type') ? this.getAttribute('type') : 'button';
   }
 }
 
