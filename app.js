@@ -87,7 +87,3 @@ function calculate (operator) {
 function equals () {
   calculate(currentOperator)
 }
-
-// if (newValue === true) {
-//   return calculatorInput.value = ''
-// }
