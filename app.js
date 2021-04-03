@@ -1,8 +1,4 @@
-const initialResult = 0
-let result = initialResult
-let previousResult = result
-let currentOperator
-let newValue = true
+// DOM Elements
 
 const calculatorInput = document.getElementById('calculator-input')
 const calculatorOutput = document.getElementById('calculator-output')
@@ -13,6 +9,14 @@ const subtractBtn = document.getElementById('subtract-button')
 const multiplyBtn = document.getElementById('multiply-button')
 const divideBtn = document.getElementById('divide-button')
 
+// Calculator data
+
+const initialResult = 0
+let result = initialResult
+let previousResult = result
+let currentOperator
+let newValue = true
+
 function clearCalculatorInput () {
   calculatorInput.value = ''
 }
@@ -21,12 +25,16 @@ function clearCalculatorOutput () {
   calculatorOutput.value = ''
 }
 
+function clearCurrentOperator () {
+  currentOperator = ''
+}
+
 function clearCalculator () {
   clearCalculatorInput()
   clearCalculatorOutput()
+  clearCurrentOperator()
   result = 0
   previousResult = 0
-  // currentOperator = ''
   document.getElementById('current-operator').innerHTML = ''
 }
 
@@ -50,9 +58,15 @@ function calculationResult () {
   // https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_output
 }
 
+function commitOperator (operator) {
+  currentOperator = operator
+}
+
 function calculate (operator) {
   if (isNaN(calculatorInput.value) || calculatorInput.value.length < 1) return alert('Provide valid value!')
 
+  previousResult = result
+  
   if (operator === '+') {
     result = result + parseInt(calculatorInput.value)
   }
@@ -75,10 +89,9 @@ function calculate (operator) {
     result = previousResult / parseInt(calculatorInput.value)
   }
   
-  calculatorOutput.value = `[previousResult: ${previousResult}] ${operator} [calculatorInput.value: ${parseInt(calculatorInput.value)}] = [result: ${result}]`
+  calculatorOutput.value = `${previousResult} ${operator} ${parseInt(calculatorInput.value)} = ${result}`
   calculatorInput.value = result
-  previousResult = result
-  currentOperator = operator
+  commitOperator(operator)
   document.getElementById('current-operator').innerHTML = 'Current operator: ' + currentOperator
   
   newValue = true
