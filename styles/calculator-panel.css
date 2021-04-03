@@ -31,25 +31,25 @@
 }
 
 #calculator-digits c-button {
-  background-color: #222;
+  background-color: var(--color-black);
 }
 
 #calculator-operations c-button {
-  background-color: orange;
+  background-color: var(--color-primary);
 }
 
 @media screen and (min-width: 981px) {
   :is(#calculator-digits, #calculator-operations) c-button:hover {
-    opacity: .6;
+    opacity: var(--opacity-medium);
   }
 }
 
 @media screen and (max-width: 980px) {
   :is(#calculator-digits, #calculator-operations) c-button:is(:active, :link) {
-    opacity: .6;
+    opacity: var(--opacity-medium);
   }
   :is(#calculator-digits, #calculator-operations) c-button {
-    -webkit-tap-highlight-color: rgba(34, 34, 34, 0.6) !important;
+    -webkit-tap-highlight-color: rgba(34, 34, 34, var(--opacity-medium)) !important;
   }
 }
 

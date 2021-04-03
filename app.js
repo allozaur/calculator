@@ -17,6 +17,9 @@ let previousResult = result
 let currentOperator
 let newValue = true
 
+let firstValue
+let secondValue
+
 function clearCalculatorInput () {
   calculatorInput.value = ''
 }
@@ -64,37 +67,59 @@ function commitOperator (operator) {
 
 function calculate (operator) {
   if (isNaN(calculatorInput.value) || calculatorInput.value.length < 1) return alert('Provide valid value!')
+  if (!operator) {
+    result = parseInt(calculatorInput.value)
+    return calculatorOutput.value = `${parseInt(calculatorInput.value)} = ${result}`
+  } else {
 
-  previousResult = result
-  
-  if (operator === '+') {
-    result = result + parseInt(calculatorInput.value)
-  }
-
-  if (operator === '-') {
-    result = result - parseInt(calculatorInput.value)
-  }
-
-  if (operator === '*') {
-    if (previousResult === 0) {
-      previousResult = 1
+    if (firstValue && !secondValue) {
+      secondValue = parseInt(calculatorInput.value)
+      console.log(`secondValue: ${secondValue}`)
     }
-    result = previousResult * parseInt(calculatorInput.value)
-  }
 
-  if (operator === '/') {
-    if (previousResult === 0) {
-      previousResult = 1
+    if (!firstValue && !secondValue) {
+      firstValue = parseInt(calculatorInput.value)
+      console.log(`firstValue: ${firstValue}`)
     }
-    result = previousResult / parseInt(calculatorInput.value)
+
+    previousResult = result
+    
+    if (operator === '+') {
+      result = result + parseInt(calculatorInput.value)
+    }
+
+    if (operator === '-') {
+      result = result - parseInt(calculatorInput.value)
+    }
+
+    if (operator === '*') {
+      if (previousResult === 0) {
+        previousResult = 1
+      }
+      result = previousResult * parseInt(calculatorInput.value)
+    }
+
+    if (operator === '/') {
+      if (previousResult === 0) {
+        previousResult = 1
+      }
+      result = previousResult / parseInt(calculatorInput.value)
+    }
+
+    if (!secondValue) {
+      secondValue = 0
+    }
+
+    calculatorOutput.value = `${previousResult} ${operator} ${parseInt(calculatorInput.value)} = ${result}`
+    // calculatorOutput.value = `${firstValue} ${operator} ${secondValue} = ${result}`
+    calculatorInput.value = result
+    commitOperator(operator)
+    // if (firstValue) document.getElementById('first-value').innerHTML = 'First value: ' + firstValue
+    if (currentOperator) document.getElementById('current-operator').innerHTML = 'Current operator: ' + currentOperator
+    // if (secondValue) document.getElementById('second-value').innerHTML = 'Second value: ' + secondValue
   }
   
-  calculatorOutput.value = `${previousResult} ${operator} ${parseInt(calculatorInput.value)} = ${result}`
-  calculatorInput.value = result
-  commitOperator(operator)
-  document.getElementById('current-operator').innerHTML = 'Current operator: ' + currentOperator
-  
-  newValue = true
+newValue = true
 }
 
 function equals () {

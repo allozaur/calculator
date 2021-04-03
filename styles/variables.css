@@ -15,4 +15,10 @@
   --desktop-large-max: 1580px;
   --desktop-hd-min: 1581px;
   --desktop-hd-max: 1920px;
+
+  --color-primary: orange;
+  --color-black: #222;
+  
+  --opacity-small: .2;
+  --opacity-medium: .6;
 }
